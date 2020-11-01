@@ -1,6 +1,6 @@
 # inmemdb  [![Coverage Status](https://coveralls.io/repos/github/mkhstar/inmemdb/badge.svg?branch=master)](https://coveralls.io/github/mkhstar/inmemdb?branch=master) [![GoDoc](https://godoc.org/github.com/mkhstar/inmemdb?status.svg)](http://godoc.org/github.com/mkhstar/inmemdb)
 
-inmemdb is an redis API compatible in-memory database heavily inspired by redis.
+inmemdb is a redis API compatible in-memory database heavily inspired by redis.
 
 In contrast with redis, inmemdb has 2 formats of output. The normal output and the json output. The normal output is similar to the standard output of redis. The json output returns the response in json format, **This helps clients to connect easily without the need of any sort of parsing.**
 
