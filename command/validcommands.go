@@ -2,6 +2,7 @@ package command
 
 // ValidCommands shows the valid commands of inMemDB
 var ValidCommands = map[string][]string{
+	"PING": nil,
 	"DEL": []string{
 		"string",
 	},

@@ -24,6 +24,7 @@ When the tcp server starts running, clients can start dailing to interact with t
 
 Commands supported are listed below. More to come!
 
+- PING
 - GET
 - SET
 - SETEX
@@ -38,6 +39,7 @@ Commands supported are listed below. More to come!
 - LLEN
 - LPOP
 - LRANGE
+- EXIT
 
 
 ## Programming Languages Client
@@ -74,6 +76,7 @@ Note: The commands are **case-insensitive**
 
 |             Command   |Normal Output                          |JSON Output                         |
 |----------------|-------------------------------|-----------------------------|
+|`PING`|`OK`           |`{"result":"PONG","status":"success"}`
 |`SET name musah`|`OK`           |`{"result":"OK","status":"success"}`
 |`GET name`          |`musah`            |`{"result":"musah","status":"success"}` 
 |`EXPIRE name 100`          |`OK`|`{"result":"OK","status":"success"}`

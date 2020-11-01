@@ -35,10 +35,11 @@ func Parse(rawCmd string) (command.Command, result.Resulter, error) {
 	rawCmdParts := re.FindAllString(commandToParse, -1)
 	cmdLen := len(rawCmdParts)
 
-	if cmdLen == 1 && rawCmdParts[0] == "exit" {
+	if cmdLen == 0 {
+		return command.Command{OutputFormat: outputFormat}, &result.Info{Result: ""}, nil
+	}
+	if cmdLen == 1 && strings.ToLower(rawCmdParts[0]) == "exit" {
 		return command.Command{OutputFormat: outputFormat}, nil, types.ClientExitError("Bye!")
-	} else if len(rawCmdParts) <= 1 {
-		return command.Command{OutputFormat: outputFormat}, types.InvalidCommandError(fmt.Sprint("(error) Few arguments provided")), nil
 	}
 
 	// validateCmd

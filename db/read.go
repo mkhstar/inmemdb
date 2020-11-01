@@ -68,6 +68,10 @@ func llen(key string) *result.Info {
 	}
 }
 
+func ping() *result.Info {
+	return &result.Info{Result: "PONG"}
+}
+
 func lrange(args []string) *result.Info {
 	key := args[0]
 	start, _ := strconv.Atoi(args[1])

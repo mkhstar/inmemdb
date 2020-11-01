@@ -6,6 +6,7 @@ import (
 	"net"
 
 	"github.com/mkhstar/inmemdb/platform"
+	"github.com/mkhstar/inmemdb/result"
 
 	"github.com/mkhstar/inmemdb/db"
 	"github.com/mkhstar/inmemdb/parser"
@@ -31,9 +32,10 @@ L:
 		} else if parseResulter != nil {
 			output(client, parseResulter, cmd.OutputFormat)
 		} else {
-			resulter := db.Execute(&cmd)
+			resulter := make(chan result.Resulter)
+			go db.Execute(&cmd, resulter)
 
-			output(client, resulter, cmd.OutputFormat)
+			output(client, <-resulter, cmd.OutputFormat)
 
 		}
 
