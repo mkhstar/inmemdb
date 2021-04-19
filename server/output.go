@@ -2,16 +2,17 @@ package server
 
 import (
 	"fmt"
-	"net"
+	"net/http"
 
-	"github.com/mkhstar/inmemdb/platform"
 	"github.com/mkhstar/inmemdb/result"
 )
 
-func output(client net.Conn, resulter result.Resulter, outputFormat string) {
+func output(w http.ResponseWriter, resulter result.Resulter, outputFormat string) {
 	if outputFormat == "json" {
-		fmt.Fprintf(client, "%s%s", resulter.JSON(), platform.LineBreak)
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(200)
+		fmt.Fprintln(w, resulter.JSON())
 	} else {
-		fmt.Fprintf(client, "%s%s> ", resulter.Echo(), platform.LineBreak)
+		fmt.Fprintln(w, resulter.Echo())
 	}
 }

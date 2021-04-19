@@ -2,12 +2,10 @@
 
 inmemdb is a redis API compatible in-memory database heavily inspired by redis.
 
-In contrast with redis, inmemdb has 2 formats of output. The normal output and the json output. The normal output is similar to the standard output of redis. The json output returns the response in json format, **This helps clients to connect easily without the need of any sort of parsing.**
-
 
 ## Usage
 
-**inmemdb** runs on a TCP server on the default port **9005**. The default port can be changed with an additional command-line argument. Example below
+**inmemdb** runs on an HTTP server on the default port **9005**. The default port can be changed with an additional command-line argument. Example below
 
 
 ```bash
@@ -16,9 +14,15 @@ In contrast with redis, inmemdb has 2 formats of output. The normal output and t
 # ./inmemdb 5000 - runs on port 5000
 ```
 
-## TCP Dialing
+## HTTP Request
 
-When the tcp server starts running, clients can start dailing to interact with the server. The most popular client I recommended is **_telnet_**.
+```
+POST / HTTP/1.1
+Host: http://localhost:9005
+Content-Type: application/json
+
+{"outputFormat": "json", "command": ["get", "name"]}
+```
 
 ## Commands Supported
 
@@ -42,7 +46,7 @@ Commands supported are listed below. More to come!
 - EXIT
 
 
-## Programming Languages Client
+## Client
 
 Currently, there are no clients available for inmemdb. In a short period of time, clients for Nodejs, Go, PHP, and Python will be released.
 
@@ -52,26 +56,16 @@ Currently, there are no clients available for inmemdb. In a short period of time
 - [ ] PHP
 
 
-## Flags
+## Outputs
 
-For now only `--json` flag is supported. if the client include this flag the output will be in json format, else it will be in the default format
-
-Example:
-
-```bash
-    get name
-    musah
-
-    get name --json
-    {"result":"musah","status":"success"}
-```
+Inmemdb can return its response in two formats (JSON and text). Response formats such as XML may be supported later. You can specify the format using the outputFormat argument. The default format is in JSON.
 
 
 ## Examples
 
 As already discussed above, the keys supported (See above) are compatible with redis.
 
-Note: The commands are **case-insensitive**
+Note: The commands are **case-insensitive** and are specified in an array of strings (See above http request)
 
 
 |             Command   |Normal Output                          |JSON Output                         |

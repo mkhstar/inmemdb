@@ -3,54 +3,54 @@ package command
 // ValidCommands shows the valid commands of inMemDB
 var ValidCommands = map[string][]string{
 	"PING": nil,
-	"DEL": []string{
+	"DEL": {
 		"string",
 	},
-	"EXPIRE": []string{
+	"EXPIRE": {
 		"string",
 		"int",
 	},
-	"GET": []string{
+	"GET": {
 		"string",
 	},
-	"SET": []string{
+	"SET": {
 		"string",
 		"string",
 	},
-	"SETEX": []string{
+	"SETEX": {
 		"string",
 		"int",
 		"string",
 	},
-	"TTL": []string{
+	"TTL": {
 		"string",
 	},
-	"SADD": []string{
-		"string",
-		"string",
-	},
-	"SMEMBERS": []string{
-		"string",
-	},
-	"SREM": []string{
+	"SADD": {
 		"string",
 		"string",
 	},
-	"LPUSH": []string{
+	"SMEMBERS": {
+		"string",
+	},
+	"SREM": {
 		"string",
 		"string",
 	},
-	"RPUSH": []string{
+	"LPUSH": {
 		"string",
 		"string",
 	},
-	"LLEN": []string{
+	"RPUSH": {
+		"string",
 		"string",
 	},
-	"LPOP": []string{
+	"LLEN": {
 		"string",
 	},
-	"LRANGE": []string{
+	"LPOP": {
+		"string",
+	},
+	"LRANGE": {
 		"string",
 		"int",
 		"int",
