@@ -50,7 +50,7 @@ Commands supported are listed below. More to come!
 
 Currently, there are no clients available for inmemdb. In a short period of time, clients for Nodejs, Go, PHP, and Python will be released.
 
-- [ ] Nodejs
+- [x] [Nodejs](https://github.com/mkhstar/inmemdb-client)
 - [ ] Go
 - [ ] Python
 - [ ] PHP
